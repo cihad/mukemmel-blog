@@ -37,8 +37,6 @@ const Home = ({ posts }) => (
     <style jsx>{`
       .container {
         max-width: 650px;
-        width: 100%;
-        margin: 0 auto;
       }
 
       .hero {
@@ -52,11 +50,6 @@ const Home = ({ posts }) => (
 
       .hero-title {
         font-size: 48px;
-      }
-
-      a {
-        color: #35459e;
-        text-decoration: none;
       }
     `}</style>
   </div>
