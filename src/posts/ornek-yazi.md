@@ -1,3 +1,7 @@
+---
+title: Örnek yazı
+date: 3 Aralık 2019
+---
 Bu yazıda markdown'un farklı özellikleri kullandıldı.
 
 #### Örnek başlık

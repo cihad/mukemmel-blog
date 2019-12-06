@@ -1,22 +1,31 @@
+import parseMarkdownWithYaml from 'gray-matter'
+
+const posts = (context => {
+  const keys = context.keys();
+  const values = keys.map(context);
+  const data = keys.map((key, index) => {
+    // Dosya adindan slug aliyoruz
+    const slug = key
+      .replace(/^.*[\\\/]/, "")
+      .split(".")
+      .slice(0, -1)
+      .join(".");
+
+    const value = values[index];
+    
+    const { content, data } = parseMarkdownWithYaml(value.default);
+    const { title, date } = data;
+
+    return {
+      details: content,
+      title,
+      slug,
+      date
+    };
+  });
+  return data;
+})(require.context("./posts/", true, /\.md$/));
+
 export const getPosts = () => {
-  return [
-    {
-      title: "1500TL ödül! Sen de yarışmaya katıl!",
-      slug: "yarisma",
-      details: require("./posts/yarisma.md").default,
-      date: "5 Aralık 2019"
-    },
-    {
-      title: "Örnek yazı",
-      slug: "ornek-yazi",
-      details: require("./posts/ornek-yazi.md").default,
-      date: "3 Aralık 2019"
-    },
-    {
-      title: "Merhaba dünya!",
-      slug: "merhaba",
-      details: require("./posts/merhaba.md").default,
-      date: "1 Aralık 2019"
-    }
-  ];
+  return posts;
 };
