@@ -3,6 +3,7 @@ import fetch from "isomorphic-unfetch";
 import Head from "next/head";
 import Link from "next/link";
 import Post from "../components/post.js"
+import "../assets/stylesheets/bootstrap.min.css"
 
 const Home = ({ posts }) => (
   <div className="container">
