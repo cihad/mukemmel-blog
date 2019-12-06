@@ -2,7 +2,6 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import Head from "next/head";
 import Post from "../components/post.js"
-import "../assets/stylesheets/bootstrap.min.css"
 import Layout from "../components/Layout";
 
 const Home = ({ posts }) => (
