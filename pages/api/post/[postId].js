@@ -1,9 +1,9 @@
-import { getPosts } from "../../../src/blog-posts";
+import { Post } from "../../../models"
 
-const posts = getPosts();
+export default async (req, res) => {
+  const post = await Post.findByPk(req.query.postId)
 
-export default (req, res) => {
   res.json({
-    post: posts.find(post => post.slug === req.query.postId)
+    post: post
   });
 };

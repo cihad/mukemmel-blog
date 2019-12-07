@@ -7,6 +7,9 @@ module.exports = withCSS({
       use: "raw-loader"
     });
 
+    config.target = "node"
+
+
     return config;
   }
 });

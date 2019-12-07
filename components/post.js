@@ -1,19 +1,19 @@
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 
-const Post = (props) => (
+const Post = ({ post }) => (
 	<div className="blog">
 		<h2 className="blog-title">
-			<Link href={props.post.slug}>
-				<a className="blog-title-link">{props.post.title}</a>
+			<Link href={post.id}>
+				<a className="blog-title-link">{post.title}</a>
 			</Link>
 		</h2>
 
 		<div className="blog-text">
-			<ReactMarkdown source={props.post.details} />
+			<ReactMarkdown source={post.body} />
 		</div>
 
-		<div className="blog-date">{props.post.date}</div>
+		<div className="blog-date">{new Date(Date.parse(post.createdAt)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
 		<style jsx>{`
 			.blog-date {
 				text-align: right;
