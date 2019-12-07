@@ -1,7 +1,7 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
-import Post from "../components/post.js"
-import Layout from "../components/Layout";
+import Post from "../../components/post.js"
+import Layout from "../../components/Layout";
 
 const New = ({ posts }) => (
   <Layout>

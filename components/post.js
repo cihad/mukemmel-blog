@@ -4,7 +4,7 @@ import Link from "next/link";
 const Post = ({ post }) => (
 	<div className="blog">
 		<h2 className="blog-title">
-			<Link href={post.id}>
+			<Link href={'/posts/' + post.id}>
 				<a className="blog-title-link">{post.title}</a>
 			</Link>
 		</h2>
