@@ -16,9 +16,6 @@ Home.getInitialProps = async ({ req }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const res = await fetch("http://localhost:3000/api/posts");
   const json = await res.json();
-
-  console.log("JSOBBBBBVVVVVVVVVVVVV ", json)
-
   return { posts: json.posts };
 };
 

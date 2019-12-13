@@ -48,4 +48,29 @@ app.prepare().then(() => {
 			});
 	})
 
+	server.put("/api/post/:id", (req, res) => {
+		const id = req.params.id
+		const { title, body } = req.body
+
+		// console.log(req)
+		// res.json({ id });
+		// return
+		
+		sequelize
+			.sync()
+			.then(() => {
+				return Post.update({
+					id,
+					title,
+					body,
+					updatedAt: new Date()
+				}, {
+					where: { id: id }
+				})
+			})
+			.then(post => {
+				res.json({ post });
+			});
+	})
+
 });

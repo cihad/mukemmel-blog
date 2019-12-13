@@ -1,10 +1,16 @@
 import React from "react";
-// import fetch from "isomorphic-unfetch";
-import Layout from "../../components/Layout";
+import fetch from "isomorphic-unfetch";
+import Layout from "../../../components/Layout";
 import { Formik } from "formik"
 import Router from "next/router"
 
 class New extends React.Component {
+	static async getInitialProps({ query }) {
+		const res = await fetch(`http://localhost:3000/api/post/${query.postId}`);
+		const json = await res.json();
+		return { post: json.post };
+	}
+
 	constructor (props) {
 		super(props);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -12,9 +18,11 @@ class New extends React.Component {
 	}
 
 	async handleSubmit (values) {
+		const persistedId = this.props.post ? this.props.post.id : undefined
+
 		try {
-			const response = await fetch('/api/posts', {
-				method: 'post',
+			const response = await fetch(persistedId ? `/api/post/${persistedId}` : '/api/posts', {
+				method: persistedId ? 'put' : 'post',
 				body: JSON.stringify(values),
 				headers: {
 					'content-type': 'application/json'
@@ -23,7 +31,7 @@ class New extends React.Component {
 
 			const { post } = await response.json();
 			
-			Router.push(`/posts/${post.id}`)
+			Router.push(`/posts/${persistedId || post.id}`)
 		} catch (error) {
 			console.error('Error:', error);
 		}
