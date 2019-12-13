@@ -12,15 +12,8 @@ class New extends React.Component {
 		this.validate = this.validate.bind(this);
 	}
 
-	state = {
-		sending: false
-	}
-
 	async handleSubmit (values) {
 		try {
-			this.setState({
-				sending: true
-			})
 			const response = await fetch('/api/posts', {
 				method: 'post',
 				body: JSON.stringify(values),
@@ -66,8 +59,8 @@ class New extends React.Component {
 							handleChange,
 							handleBlur,
 							handleSubmit
-						}) => {
-							return <form onSubmit={handleSubmit}>
+						}) => (
+							<form onSubmit={handleSubmit}>
 								<div className="form-group">
 									<label htmlFor="title">Başlık</label>
 									<input
@@ -117,9 +110,16 @@ class New extends React.Component {
 									}
 								</div>
 
-								<button type="submit" className="btn btn-primary" disabled={isSubmitting} disabled={this.sending}>Yayınla</button>
+								{
+									isSubmitting 
+										? <button class="btn btn-primary" type="button" disabled>
+												<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+												&nbsp; Gönderiliyor...
+									  		</button>
+										: <button type="submit" className="btn btn-primary">Yayınla</button>
+								}
 							</form>
-						}
+						)
 					}
 				</Formik>
 			</Layout>
