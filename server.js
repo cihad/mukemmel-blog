@@ -73,4 +73,19 @@ app.prepare().then(() => {
 			});
 	})
 
+	server.delete("/api/posts/:id", (req, res) => {
+		const id = req.params.id
+		
+		sequelize
+			.sync()
+			.then(() => {
+				return Post.destroy({
+					where: { id: id }
+				})
+			})
+			.then(deletedPosts => {
+				res.json({ deletedPosts });
+			});
+	})
+
 });

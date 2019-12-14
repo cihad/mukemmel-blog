@@ -1,9 +1,10 @@
 import ReactMarkdown from "react-markdown";
 import Link from "next/link";
+import PostMenu from "./PostMenu"
 
 const Post = ({ post, page }) => (
 	<div className="blog">
-		<h2 className="blog-title">
+		<h2 className="blog-title d-flex">
 			{
 				page
 					? 	post.title
@@ -11,9 +12,10 @@ const Post = ({ post, page }) => (
 							<a className="blog-title-link">{post.title}</a>
 						</Link>
 			}
+
+			<PostMenu post={post} />
 		</h2>
 			
-
 		<div className="blog-text">
 			<ReactMarkdown source={post.body} />
 		</div>
