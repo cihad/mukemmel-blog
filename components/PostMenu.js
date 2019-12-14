@@ -36,8 +36,10 @@ class PostMenu extends React.Component {
 					</Dropdown.Toggle>
 		
 					<Dropdown.Menu>
-						<Link href={`/posts/${post.id}/edit`}><span className="dropdown-item">Düzenle</span></Link>
-						<Link href={`/posts/${post.id}`}><span className="dropdown-item" onClick={this.handleDelete}>Sil</span></Link>
+						<Link href={`/posts/${post.id}/edit`}>
+							<a className="dropdown-item">Düzenle</a>
+						</Link>
+						<a className="dropdown-item" href="#" onClick={this.handleDelete}>Sil</a>
 					</Dropdown.Menu>
 				</Dropdown>
 			</>
