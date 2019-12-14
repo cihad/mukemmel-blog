@@ -1,13 +1,12 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
-import Head from "next/head";
-import PostView from "../components/post.js"
+import Post from "../components/Post.js"
 import Layout from "../components/Layout";
 
 const Home = ({ posts }) => (
   <Layout>
       {posts.map(post => (
-        <PostView post={post}></PostView>
+        <Post post={post} page={false}></Post>
       ))}
   </Layout>
 );

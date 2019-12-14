@@ -5,7 +5,7 @@ import Layout from "../../components/Layout";
 
 const BlogPost = ({ post }) => (
 	<Layout>
-		<Post post={post}></Post>
+		<Post post={post} page={true}></Post>
 	</Layout>
 );
 
