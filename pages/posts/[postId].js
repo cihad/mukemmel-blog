@@ -1,11 +1,11 @@
 import React from "react";
 import fetch from "isomorphic-unfetch";
-import Post from "../../components/post.js";
+import PostView from "../../components/PostView.js";
 import Layout from "../../components/Layout";
 
 const BlogPost = ({ post }) => (
 	<Layout>
-		<Post post={post} page={true}></Post>
+		<PostView post={post} page={true}></PostView>
 	</Layout>
 );
 

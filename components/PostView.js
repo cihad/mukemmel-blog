@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import PostMenu from "./PostMenu"
 
-const Post = ({ post, page }) => (
+const PostView = ({ post, page }) => (
 	<div className="blog">
 		<h2 className="blog-title d-flex">
 			{
@@ -31,7 +31,7 @@ const Post = ({ post, page }) => (
 	</div>
 )
 
-Post.getInitialProps = async ({ req }) => {
+PostView.getInitialProps = async ({ req }) => {
 };
 
-export default Post
+export default PostView
