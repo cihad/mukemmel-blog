@@ -11,7 +11,9 @@ export default function Layout(props) {
 		</Head>
 
 		<div className="hero">
-			<h1 className="hero-title">Selman Kahya</h1>
+			<h1 className="hero-title">
+				<Link href="/">Selman Kahya</Link>
+			</h1>
 			<div className="hero-social-links">
 			<Link href="//medium.com/@selmankahya">
 				<a className="social-link">Medium</a>
