@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import "../assets/stylesheets/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Layout(props) {
   return (
