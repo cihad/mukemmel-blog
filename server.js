@@ -18,74 +18,59 @@ const { Post, sequelize } = require("./models/index.js")
 
 
 app.prepare().then(() => {
+	sequelize.sync().then(() => {
 
-	// This is the default route, don't edit this.
-	server.get('*', (req, res) => {
-		return handle(req, res);
-	});
-	const port = process.env.PORT || 3000;
+		// This is the default route, don't edit this.
+		server.get('*', (req, res) => {
+			return handle(req, res);
+		});
 
-	server.listen(port, err => {
-		if (err) throw err;
-		console.log(`> Ready on port ${port}...`);
-	});
+		const port = process.env.PORT || 3000;
 
-	server.post("/api/posts", (req, res) => {
-		const { title, body } = req.body
-		
-		sequelize
-			.sync()
-			.then(() => {
-				return Post.create({
-					title,
-					body,
-					createdAt: new Date(),
-					updatedAt: new Date()
-				})
+		server.listen(port, err => {
+			if (err) throw err;
+			console.log(`> Ready on port ${port}...`);
+		});
+
+		server.post("/api/posts", async (req, res) => {
+			const { title, body } = req.body
+			
+			
+			const post = await Post.create({
+				title,
+				body,
+				createdAt: new Date(),
+				updatedAt: new Date()
 			})
-			.then(post => {
-				res.json({ post });
-			});
-	})
+			
+			res.json({ post });
+		})
 
-	server.put("/api/post/:id", (req, res) => {
-		const id = req.params.id
-		const { title, body } = req.body
+		server.put("/api/posts/:id", async (req, res) => {
+			const id = req.params.id
+			const { title, body } = req.body
 
-		// console.log(req)
-		// res.json({ id });
-		// return
-		
-		sequelize
-			.sync()
-			.then(() => {
-				return Post.update({
-					id,
-					title,
-					body,
-					updatedAt: new Date()
-				}, {
-					where: { id: id }
-				})
+			const post = await Post.update({
+				id,
+				title,
+				body,
+				updatedAt: new Date()
+			}, {
+				where: { id }
 			})
-			.then(post => {
-				res.json({ post });
-			});
-	})
 
-	server.delete("/api/posts/:id", (req, res) => {
-		const id = req.params.id
-		
-		sequelize
-			.sync()
-			.then(() => {
-				return Post.destroy({
-					where: { id: id }
-				})
+			res.json({ post });
+		})
+
+		server.delete("/api/posts/:id", async (req, res) => {
+			const id = req.params.id
+			
+			const deletedPosts = Post.destroy({
+				where: { id }
 			})
-			.then(deletedPosts => {
-				res.json({ deletedPosts });
-			});
-	})
+			
+			res.json({ deletedPosts });
+		})
 
+	})
 });

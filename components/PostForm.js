@@ -6,7 +6,7 @@ import Router from "next/router"
 class PostForm extends React.Component {
 	static async getInitialProps({ query }) {
 		if (query.postId) {
-			const res = await fetch(`http://localhost:3000/api/post/${query.postId}`);
+			const res = await fetch(`http://localhost:3000/api/posts/${query.postId}`);
 			const json = await res.json();
 			return { post: json.post };
 		} else {
@@ -24,7 +24,7 @@ class PostForm extends React.Component {
 		const persistedId = this.props.post ? this.props.post.id : undefined
 
 		try {
-			const response = await fetch(persistedId ? `/api/post/${persistedId}` : '/api/posts', {
+			const response = await fetch(persistedId ? `/api/posts/${persistedId}` : '/api/posts', {
 				method: persistedId ? 'put' : 'post',
 				body: JSON.stringify(values),
 				headers: {
