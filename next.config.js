@@ -8,5 +8,9 @@ module.exports = withCSS({
     });
 
     return config;
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
+    API_BASE: process.env.API_BASE
   }
 });
