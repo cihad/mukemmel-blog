@@ -2,6 +2,7 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import Layout from "../../../components/Layout";
 import PostForm from "../../../components/PostForm"
+import { API_BASE } from "../../../src/config"
 
 const Edit = ({ post }) => (
 	<Layout>
@@ -11,7 +12,7 @@ const Edit = ({ post }) => (
 )
 
 Edit.getInitialProps = async ({ req, query }) => {
-	const res = await fetch(`http://localhost:3000/api/posts/${query.id}`);
+	const res = await fetch(`${API_BASE}/posts/${query.id}`);
 	const json = await res.json();
 	return { post: json.post };
 };

@@ -1,6 +1,7 @@
 import { Dropdown } from "react-bootstrap"
 import Link from "next/link"
 import Router from "next/router"
+import { API_BASE } from "../src/config"
 
 class PostMenu extends React.Component {
 
@@ -13,7 +14,7 @@ class PostMenu extends React.Component {
 		e.preventDefault()
 
 		try {
-			const response = await fetch(`http://localhost:3000/api/posts/${this.props.post.id}`, {
+			const response = await fetch(`${API_BASE}/posts/${this.props.post.id}`, {
 				method: "DELETE"
 			})
 

@@ -2,11 +2,12 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import { Formik } from "formik"
 import Router from "next/router"
+import { API_BASE } from "../src/config"
 
 class PostForm extends React.Component {
 	static async getInitialProps({ query }) {
 		if (query.id) {
-			const res = await fetch(`http://localhost:3000/api/posts/${query.id}`);
+			const res = await fetch(`${API_BASE}/posts/${query.id}`);
 			const json = await res.json();
 			return { post: json.post };
 		} else {
@@ -24,7 +25,7 @@ class PostForm extends React.Component {
 		const persistedId = this.props.post ? this.props.post.id : undefined
 
 		try {
-			const response = await fetch(persistedId ? `/api/posts/${persistedId}` : '/api/posts', {
+			const response = await fetch(persistedId ? `${API_BASE}/posts/${persistedId}` : `${API_BASE}/posts`, {
 				method: persistedId ? 'put' : 'post',
 				body: JSON.stringify(values),
 				headers: {

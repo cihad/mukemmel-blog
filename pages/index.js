@@ -3,6 +3,7 @@ import fetch from "isomorphic-unfetch";
 import PostView from "../components/PostView.js"
 import PostPager from "../components/PostPager.js"
 import Layout from "../components/Layout";
+import { API_BASE } from "../src/config"
 
 const Home = ({ posts, pages, currentPage }) => (
   <Layout>
@@ -18,7 +19,7 @@ Home.getInitialProps = async ({ query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
   const page = query.page || 1
 
-  const res = await fetch(`http://localhost:3000/api/posts?page=${page}`);
+  const res = await fetch(`${API_BASE}/posts?page=${page}`);
 
   const data = await res.json()
 
