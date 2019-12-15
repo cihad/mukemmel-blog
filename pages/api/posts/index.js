@@ -1,16 +1,36 @@
 import { Post } from "../../../models"
 
 export default async (req, res) => {
-	const page = req.query.page || 1
+	switch (req.method) {
+		case "GET":
+			const page = req.query.page || 1
 
-	const options = {
-		page,
-		paginate: 10, // TODO: uygulama konfigurasyonundan alinsin.
-		order: [['createdAt', 'DESC']],
-  }
+			const options = {
+				page,
+				paginate: 10, // TODO: uygulama konfigurasyonundan alinsin.
+				order: [['createdAt', 'DESC']],
+			}
+		
+			const { docs, pages, total } = await Post.paginate(options);
+		
+		
+			res.json({ pages, total, posts: docs });
 
-	const { docs, pages, total } = await Post.paginate(options);
+			break;
+		
+		case "POST":
+			const { title, body } = req.body
+		
+			const post = await Post.create({
+				title,
+				body,
+				createdAt: new Date(),
+				updatedAt: new Date()
+			})
+			
+			res.json({ post });
 
+			break;
+	}
 
-	res.json({ pages, total, posts: docs });
 };

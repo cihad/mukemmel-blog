@@ -3,17 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "nodemon ./server.js",
+    "dev": "next",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "next start"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
     "formik": "^2.0.6",
     "gray-matter": "^4.0.2",
     "isomorphic-unfetch": "^3.0.0",

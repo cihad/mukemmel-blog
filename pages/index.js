@@ -14,9 +14,9 @@ const Home = ({ posts, pages, currentPage }) => (
   </Layout>
 );
 
-Home.getInitialProps = async ({ req }) => {
+Home.getInitialProps = async ({ query }) => {
   // TODO: aşağıdaki satırda bulunan adresi kendi sunucu adresinle değiştirmelisin
-  const page = req.query.page || 1
+  const page = query.page || 1
 
   const res = await fetch(`http://localhost:3000/api/posts?page=${page}`);
 
