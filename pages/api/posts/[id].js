@@ -1,7 +1,7 @@
 import { Post } from "../../../models"
 
 export default async (req, res) => {
-	const id = req.query.postId
+	const id = req.query.id
 	let post;
 
 	switch (req.method) {

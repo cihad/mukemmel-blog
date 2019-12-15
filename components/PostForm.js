@@ -5,8 +5,8 @@ import Router from "next/router"
 
 class PostForm extends React.Component {
 	static async getInitialProps({ query }) {
-		if (query.postId) {
-			const res = await fetch(`http://localhost:3000/api/posts/${query.postId}`);
+		if (query.id) {
+			const res = await fetch(`http://localhost:3000/api/posts/${query.id}`);
 			const json = await res.json();
 			return { post: json.post };
 		} else {
