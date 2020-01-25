@@ -5,50 +5,34 @@ import articleStyles from '../styles/article.js'
 
 export default function Layout(props) {
   return (
-	<div className="container">
+	<>
 		<Head>
 			<title>Mukemmel Blog</title>
 			<link rel="icon" href="/favicon.ico" />
 			<link class="editor" rel="stylesheet" type="text/css" href="https://unpkg.com/@contentarchitect/editor@0.2.23/dist/CaBlocks.css" />
 			{articleStyles}
+			<link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet" />
 		</Head>
 
-		<div className="hero">
-			<h1 className="hero-title">
-				<Link href="/">Selman Kahya</Link>
-			</h1>
-			<div className="hero-social-links">
-			<Link href="//medium.com/@selmankahya">
-				<a className="social-link">Medium</a>
-			</Link>
-			<Link href="//www.twitter.com/selmankahyax">
-				<a className="social-link">Twitter</a>
-			</Link>
-			<Link href="//www.linkedin.com/in/selmankahya">
-				<a className="social-link">LinkedIn</a>
-			</Link>
-			<Link href="//www.instagram.com/selmankahyax/?hl=en">
-				<a className="social-link">Instagram</a>
-			</Link>
-			</div>
-		</div>
-
-		<section>{props.children}</section>
-
-		<style jsx>{`
-			.hero {
-				text-align: center;
-				margin: 96px 0;
+		<style jsx global>{`
+			h1, h2, h3 {
+				font-family: 'Merriweather', serif;
 			}
-
-			.social-link {
-				margin-right: 8px;
-			}
-
-			.hero-title {
-				font-size: 48px;
+			section {
+				padding: 3em 0;
 			}
 		`}</style>
-	</div>
+		<div className="container">
+			<section>{props.children}</section>
+		</div>
+
+		<footer className={"bg-light pt-3 pb-4"}>
+			<div className={"container text-center"}>
+				<div className={"col"}>
+					<span>Bu site <a href="https://nextjs.org/">Next.JS</a> teknolojisi kullanılarak yapıldı. Aynı zamanda açık kaynaklı. <a href="https://github.com/cihad/mukemmel-blog">Bkz.</a></span>
+				</div>
+			</div>
+		</footer>
+	</>
   );
 }
