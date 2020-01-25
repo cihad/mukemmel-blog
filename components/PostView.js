@@ -17,7 +17,8 @@ const PostView = ({ post, page }) => (
 		</h2>
 			
 		<div className="blog-text">
-			<ReactMarkdown source={post.body} />
+			<div dangerouslySetInnerHTML={{ __html: post.body }}></div>
+			{/* <ReactMarkdown source={post.body} /> */}
 		</div>
 
 		<div className="blog-date">{new Date(Date.parse(post.createdAt)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
