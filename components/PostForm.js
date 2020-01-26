@@ -88,9 +88,9 @@ class PostForm extends React.Component {
 		return (
 			<>
 				<script src="https://unpkg.com/vue"></script>
-				<script src="https://unpkg.com/@contentarchitect/editor@0.2.23/dist/CaCore.umd.js"></script>
-				<script src="https://unpkg.com/@contentarchitect/editor@0.2.23/dist/CaEditor.umd.js"></script>
-				<script src="https://unpkg.com/@contentarchitect/editor@0.2.23/dist/CaBlocks.umd.js"></script>
+				<script src="https://unpkg.com/@contentarchitect/editor@0.2.x/dist/CaCore.umd.js"></script>
+				<script src="https://unpkg.com/@contentarchitect/editor@0.2.x/dist/CaEditor.umd.js"></script>
+				<script src="https://unpkg.com/@contentarchitect/editor@0.2.x/dist/CaBlocks.umd.js"></script>
 				<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
 				<script src="https://prismjs.com/components/prism-markup.js"></script>
 				<script src="https://prismjs.com/components/prism-clike.js"></script>

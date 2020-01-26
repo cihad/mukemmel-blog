@@ -9,7 +9,7 @@ export default function Layout(props) {
 		<Head>
 			<title>Mukemmel Blog</title>
 			<link rel="icon" href="/favicon.ico" />
-			<link class="editor" rel="stylesheet" type="text/css" href="https://unpkg.com/@contentarchitect/editor@0.2.23/dist/CaBlocks.css" />
+			<link class="editor" rel="stylesheet" type="text/css" href="https://unpkg.com/@contentarchitect/editor@0.2.x/dist/CaBlocks.css" />
 			{articleStyles}
 			<link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet" />
 		</Head>
