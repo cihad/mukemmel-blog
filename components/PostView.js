@@ -4,7 +4,7 @@ import PostMenu from "./PostMenu"
 
 const PostView = ({ post, page }) => (
 	<div className="blog">
-		<h2 className="blog-title d-flex">
+		<h2 className="blog-title d-flex justify-content-center mb-5">
 			{
 				page
 					? 	post.title
@@ -27,6 +27,12 @@ const PostView = ({ post, page }) => (
 				text-align: right;
 				color: #cccccc;
 				margin: 12px 0 48px 0;
+			}
+
+			.blog-title {
+				max-width: 80%;
+				margin-left: auto;
+				margin-right: auto;
 			}
 		`}</style>
 	</div>
