@@ -6,7 +6,7 @@ import { API_BASE } from "../../../src/config"
 
 const BlogPost = ({ post }) => (
 	<Layout>
-		<PostView post={post} page={true}></PostView>
+		<PostView post={post}></PostView>
 	</Layout>
 );
 

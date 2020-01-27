@@ -34,15 +34,18 @@ class PostForm extends React.Component {
 		this.onChange = this.onChange.bind(this);
 		this.editor = React.createRef();
 		this.body = React.createRef();
+		this.short = React.createRef();
 		const { title, body } = props.post
-		this.state  = { title, body }
+		this.state  = { title, body, short: "" }
 	}
 
 	async onSubmit (e) {
 		e.preventDefault()
+
 		const persistedId = this.props.post ? this.props.post.id : undefined
 
 		try {
+			console.log(API_BASE)
 			const response = await fetch(persistedId ? `${API_BASE}/posts/${persistedId}` : `${API_BASE}/posts`, {
 				method: persistedId ? 'put' : 'post',
 				body: JSON.stringify(this.state),
@@ -97,6 +100,76 @@ class PostForm extends React.Component {
 				<script src="https://prismjs.com/components/prism-javascript.js"></script>
 				<script src="https://prismjs.com/components/prism-css.js"></script>
 
+				<script dangerouslySetInnerHTML={{__html: `
+						function setReactInputValue(input, value) {
+							const previousValue = input.value;
+							input.value = value;
+							const tracker = input._valueTracker;
+							if (tracker) {
+							  tracker.setValue(previousValue);
+							}
+							input.dispatchEvent(new Event('change', { bubbles: true }));
+						}
+
+						class ReadMore extends CaCore.Block {
+							static get viewComponent () {
+								return {
+									template: \`
+										<div class="read-more">
+											<hr />
+											<span>Read More</span>
+											<hr />
+										</div>\`,
+									inject: ['slottedBlocks'],
+									props: ['value'],
+									watch: {
+										slottedBlocks: {
+											immediate: true,
+											deep: true,
+											handler () {
+												const index = this.slottedBlocks.indexOf(this.value);
+												let shortBlocks = this.slottedBlocks.slice(0, index);
+												shortBlocks = CaCore.renderBlocks(shortBlocks)
+												const short = document.getElementById("short")
+												if (!short) return;
+												setReactInputValue(short, shortBlocks)
+											}
+										}
+									}
+								}
+							}
+
+							static serializeFromHTML (doc) {
+								return {}
+							}
+
+							toHTML () {
+								return ""
+							}
+						}
+
+						CaCore.Blocks.register(ReadMore)
+					
+				`}}></script>
+
+				<style className={"editor"} dangerouslySetInnerHTML={{__html: `
+					[data-block=ReadMore] .read-more {
+						padding: 1em 0;
+						display: flex;
+						align-items: center;
+					}
+
+					[data-block=ReadMore] .read-more span {
+						padding: 0 1em;
+					}
+
+					[data-block=ReadMore] .read-more hr{
+						flex: 1;
+						border: 0;
+						border-bottom: 1px solid #ccc;
+					}
+				` }} />
+
 				<form onSubmit={this.onSubmit}>
 					<div className="form-group">
 						<label htmlFor="title">Başlık</label>
@@ -122,15 +195,17 @@ class PostForm extends React.Component {
 									: '<div data-block="Wysiwyg"><p>Harika blog yazım...</p></div>'
 							}
 						/>
-						<input
-							id="body"
-							name="body"
-							type="hidden"
-							ref={this.body}
-							value={this.state.body}
-							onChange={this.onChange}
-						/>
 					</div>
+
+					<input
+						id="short"
+						name="short"
+						type="text"
+						style={{display: 'none'}}
+						ref={this.short}
+						value={this.state.short}
+						onChange={this.onChange}
+					/>
 					
 					<button type="submit" className="btn btn-primary">Yayınla</button>
 				</form>

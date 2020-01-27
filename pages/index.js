@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
-import PostView from "../components/PostView.js"
+import ShortPostView from "../components/ShortPostView.js"
 import PostPager from "../components/PostPager.js"
 import Layout from "../components/Layout";
 import { API_BASE } from "../src/config"
@@ -119,9 +119,10 @@ const Home = ({ posts, pages, currentPage }) => (
 
     <Layout>
       
+        <h2 className={"mb-5"}>Yazılarım</h2>
 
         {posts.map(post => (
-          <PostView post={post} page={false}></PostView>
+          <ShortPostView post={post} key={post.id}></ShortPostView>
         ))}
 
         <PostPager pages={pages} current={currentPage}></PostPager>

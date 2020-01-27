@@ -19,11 +19,12 @@ export default async (req, res) => {
 			break;
 		
 		case "POST":
-			const { title, body } = req.body
+			const { title, body, short } = req.body
 		
 			const post = await Post.create({
 				title,
 				body,
+				short,
 				createdAt: new Date(),
 				updatedAt: new Date()
 			})

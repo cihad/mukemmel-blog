@@ -6,12 +6,13 @@ export default async (req, res) => {
 
 	switch (req.method) {
 		case "PUT":
-			const { title, body } = req.body
+			const { title, body, short } = req.body
 		
 			post = await Post.update({
 				id,
 				title,
 				body,
+				short,
 				updatedAt: new Date()
 			}, {
 				where: { id }

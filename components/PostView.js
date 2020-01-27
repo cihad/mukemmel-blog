@@ -1,24 +1,14 @@
-import ReactMarkdown from "react-markdown";
 import Link from "next/link";
 import PostMenu from "./PostMenu"
 
-const PostView = ({ post, page }) => (
+const PostView = ({ post }) => (
 	<div className="blog">
 		<h2 className="blog-title d-flex justify-content-center mb-5">
-			{
-				page
-					? 	post.title
-					: 	<Link href={'/posts/' + post.id}>
-							<a className="blog-title-link">{post.title}</a>
-						</Link>
-			}
-
+			{post.title}
 			<PostMenu post={post} />
 		</h2>
 			
-		<div className="blog-text">
-			<div dangerouslySetInnerHTML={{ __html: post.body }}></div>
-			{/* <ReactMarkdown source={post.body} /> */}
+		<div className="blog-text" dangerouslySetInnerHTML={{ __html: post.body }}>
 		</div>
 
 		<div className="blog-date">{new Date(Date.parse(post.createdAt)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
@@ -37,8 +27,5 @@ const PostView = ({ post, page }) => (
 		`}</style>
 	</div>
 )
-
-PostView.getInitialProps = async ({ req }) => {
-};
 
 export default PostView

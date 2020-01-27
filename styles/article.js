@@ -1,4 +1,4 @@
-export default <style className={"editor"} jsx>{`
+export default <style className={"editor"} jsx={true}>{`
 	[data-block] {
 		margin: 0 100px;
 	}
