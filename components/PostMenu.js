@@ -32,7 +32,7 @@ class PostMenu extends React.Component {
 		return (
 			<>
 				<Dropdown>
-					<Dropdown.Toggle variant="link">
+					<Dropdown.Toggle variant="link" className="text-decoration-none">
 						&#9881;
 					</Dropdown.Toggle>
 		

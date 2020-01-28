@@ -52,11 +52,9 @@ const Home = ({ posts, pages, currentPage }) => (
         background-color: #0033cc0a;
       }
 
-      .name {
-      }
-
       .social-links > a::after {
         content: '/';
+        display: inline-block;
         padding: 0 .5em;
         color: black;
       }
