@@ -18,16 +18,6 @@ function setReactInputValue(input, value) {
 }
 
 class PostForm extends React.Component {
-	static async getInitialProps({ query }) {
-		if (query.id) {
-			const res = await fetch(`${API_BASE}/posts/${query.id}`);
-			const json = await res.json()
-			return { post: json.post };
-		} else {
-			return {}
-		}
-	}
-
 	constructor (props) {
 		super(props);
 		this.onSubmit = this.onSubmit.bind(this);
@@ -192,7 +182,7 @@ class PostForm extends React.Component {
 							value={
 								this.state.body
 									? this.state.body
-									: '<div data-block="Wysiwyg"><p>Harika blog yazım...</p></div>'
+									: '<div data-block="Paragraph"><p>Harika blog yazım...</p></div>'
 							}
 						/>
 					</div>
