@@ -31,7 +31,7 @@ export default function Layout(props) {
 			<section>{props.children}</section>
 		</div>
 
-		<footer className={"bg-light pt-3 pb-4"}>
+		<footer className={"bg-light py-5 mt-5"}>
 			<div className={"container text-center"}>
 				<div className={"col"}>
 					<span>Bu site <a href="https://nextjs.org/">Next.JS</a> teknolojisi kullanılarak yapıldı. Aynı zamanda açık kaynaklı. <a href="https://github.com/cihad/mukemmel-blog">Bkz.</a></span>
