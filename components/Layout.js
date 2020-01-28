@@ -15,19 +15,31 @@ export default function Layout(props) {
 		</Head>
 
 		<style jsx global>{`
+			html, body, #__next {
+				height: 100%;
+				width: 100%;
+			}
+
+			#__next {
+				display: flex;
+				flex-direction: column;
+			}
+			
 			.container {
-			  max-width: 800px;
+				max-width: 800px;
 			}
 
 			h1, h2, h3 {
 				font-family: 'Merriweather', serif;
 			}
+
 			section {
 				padding: 3em 0;
 			}
 		`}</style>
+
 		{props.header}
-		<div className="container">
+		<div className="container flex-grow-1">
 			<section>{props.children}</section>
 		</div>
 
