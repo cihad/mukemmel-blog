@@ -38,6 +38,16 @@ export default function Layout(props) {
 			}
 		`}</style>
 
+		<style className={"editor"} dangerouslySetInnerHTML={{__html: `
+			.drop-cap .editable-body:not(:focus) > p:first-child:first-letter,
+			.drop-cap > p:first-child:first-letter {
+				float: left;
+				font-size: 3em;
+				line-height: 1em;
+				margin-right: .1em;
+			}
+		` }} />		
+
 		{props.header}
 		<div className="container flex-grow-1">
 			<section>{props.children}</section>
