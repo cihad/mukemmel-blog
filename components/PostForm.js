@@ -178,6 +178,7 @@ class PostForm extends React.Component {
 						<content-architect
 							class="border rounded p-2"
 							block-styles=".editor"
+							id="editor"
 							ref={this.editor}
 							value={
 								this.state.body
@@ -199,6 +200,17 @@ class PostForm extends React.Component {
 					
 					<button type="submit" className="btn btn-primary">Yayınla</button>
 				</form>
+
+				<script dangerouslySetInnerHTML={{__html: `
+					editor.classOptions = [
+						{
+							blocks: ["Paragraph"],
+							classes: {
+								"drop-cap": "Big First Letter"
+							}
+						}
+					]
+				` }} />
 			</>
 		);
 	}

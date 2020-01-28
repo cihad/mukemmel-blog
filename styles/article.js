@@ -43,4 +43,12 @@ export default <style className={"editor"} jsx={true}>{`
 	[data-block=Quote] blockquote {
 		margin: 0 40px 0;
 	}
+
+	.drop-cap .editable-body:not(:focus) p:first-child:first-letter,
+	.drop-cap p:first-child:first-letter {
+		float: left;
+		font-size: 3em;
+		line-height: 1em;
+		margin-right: .1em;
+	}
 `}</style>
