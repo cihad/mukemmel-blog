@@ -3,10 +3,18 @@ import PostMenu from "./PostMenu"
 
 const PostView = ({ post }) => (
 	<div className="blog">
-		<h2 className="blog-title d-flex justify-content-center mb-5">
-			{post.title}
+		<div className="mb-4">
+			<Link href={'/'}>
+				<a className="btn btn-light">⟵ Yazılarım</a>
+			</Link>
+		</div>
+
+		<div className="blog-title d-flex justify-content-center text-center mb-5">
+			<h2>
+				{post.title}
+			</h2>
 			<PostMenu post={post} />
-		</h2>
+		</div>
 			
 		<div className="blog-text" dangerouslySetInnerHTML={{ __html: post.body }}>
 		</div>
@@ -19,8 +27,7 @@ const PostView = ({ post }) => (
 				margin: 12px 0 48px 0;
 			}
 
-			.blog-title {
-				max-width: 80%;
+			.blog-title h2 {
 				margin-left: auto;
 				margin-right: auto;
 			}

@@ -26,6 +26,7 @@ export default function Layout(props) {
 				padding: 3em 0;
 			}
 		`}</style>
+		{props.header}
 		<div className="container">
 			<section>{props.children}</section>
 		</div>

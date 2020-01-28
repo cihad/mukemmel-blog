@@ -2,10 +2,11 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import PostView from "../../../components/PostView.js";
 import Layout from "../../../components/Layout";
+import HeaderSm from "../../../components/HeaderSm";
 import { API_BASE } from "../../../src/config"
 
 const BlogPost = ({ post }) => (
-	<Layout>
+	<Layout header={<HeaderSm />}>
 		<PostView post={post}></PostView>
 	</Layout>
 );
