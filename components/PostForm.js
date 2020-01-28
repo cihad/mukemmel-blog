@@ -158,6 +158,14 @@ class PostForm extends React.Component {
 						border: 0;
 						border-bottom: 1px solid #ccc;
 					}
+
+					.drop-cap .editable-body:not(:focus) > p:first-child:first-letter,
+					.drop-cap > p:first-child:first-letter {
+						float: left;
+						font-size: 3em;
+						line-height: 1em;
+						margin-right: .1em;
+					}
 				` }} />
 
 				<form onSubmit={this.onSubmit}>
