@@ -9,7 +9,7 @@ import { API_BASE } from "../src/config"
 
 const Home = ({ posts, pages, currentPage }) => (
   <Layout header={<Header />}>
-      <h2 className={"mb-5"}>Yazılarım</h2>
+      <h2 className={"mb-5"}>Yazılarım ❧</h2>
 
       {posts.map(post => (
         <ShortPostView post={post} key={post.id}></ShortPostView>
