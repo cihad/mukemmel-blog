@@ -15,6 +15,10 @@ export default function Layout(props) {
 		</Head>
 
 		<style jsx global>{`
+			.container {
+			  max-width: 800px;
+			}
+
 			h1, h2, h3 {
 				font-family: 'Merriweather', serif;
 			}

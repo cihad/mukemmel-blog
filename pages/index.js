@@ -45,12 +45,6 @@ const Home = ({ posts, pages, currentPage }) => (
       </div>
     </header>
 
-    <style jsx global>{`
-      .container {
-        max-width: 900px;
-      }
-    `}</style>
-
     <style jsx>{`
       header {
         border-top: 3px solid #03c;
