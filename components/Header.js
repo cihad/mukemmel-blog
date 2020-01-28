@@ -1,30 +1,18 @@
 import Link from "next/link";
+import SocialLinks from "./SocialLinks"
 
 const Header = () => (
 	<header>
 		<div className={"container"}>
 			<div className={"row"}>
-				<div className={"col-md-8 pr-md-5"}>
+				<div className={"col-md-8 pr-md-5 d-flex flex-column justify-content-center"}>
 					<h1 className={"name mb-md-4"}><strong>Merhaba ✋ yolcu</strong>,<br /> Ben Selman Kahya</h1>
 					<p className={"mb-md-5"}>
 						Ben bir <strong>önyüz &amp; arayüz geliştiricisi</strong>yim. Şu anda <strong>Airbnb</strong>'de çalışıyorum.
 						Aynı zamanda bir 🎥 <strong>Youtube</strong> yayıncısıyım. Bu açıklamayı benim için
 						yarışmacı (<a href="https://youtu.be/cHUh0FmPd3A" title="Yarışma hakkında">*</a>) arkadaş yaptı. Bu siteyi de o yaptı.
 					</p>
-					<div className={"social-links"}>
-						<Link href="//medium.com/@selmankahya">
-							<a>Medium</a>
-						</Link>
-						<Link href="//www.twitter.com/selmankahyax">
-							<a>Twitter</a>
-						</Link>
-						<Link href="//www.linkedin.com/in/selmankahya">
-							<a>LinkedIn</a>
-						</Link>
-						<Link href="//www.instagram.com/selmankahyax/?hl=en">
-							<a>Instagram</a>
-						</Link>
-					</div>
+					<SocialLinks />
 				</div>
 				<div className={"col-md-4 d-flex align-items-center"}>
 					<div className={"segment d-flex align-items-center flex-column text-center"}>
@@ -38,65 +26,54 @@ const Header = () => (
 
 		<style jsx>{`
 			header {
-			border-top: 3px solid #03c;
-			padding: 4em 0 3em 0;
-			background-color: #0033cc0a;
-			}
-
-			.social-links > a::after {
-			content: '/';
-			display: inline-block;
-			padding: 0 .5em;
-			color: black;
-			}
-
-			.social-links > a:last-child::after {
-			content: ''
+				border-top: 3px solid #03c;
+				padding: 4em 0 3em 0;
+				background-color: #0033cc0a;
 			}
 
 			.segment,
 			.segment::before,
 			.segment::after {
-			border: 1px solid rgba(50, 50, 50, .15);
-			background-color: white;
-			box-shadow: 0 1px 2px 0 rgba(50, 50, 50, .15);
-			border-radius: .3em;
+				border: 1px solid rgba(50, 50, 50, .15);
+				background-color: white;
+				box-shadow: 0 1px 2px 0 rgba(50, 50, 50, .15);
+				border-radius: .3em;
 			}
 
 			.segment {
-			position: relative;
-			padding: 1.4em;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
+				position: relative;
+				padding: 1.4em;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
 			}
 
 			.segment::before,
 			.segment::after {
-			content: '';
-			display: block;
-			height: 100%;
-			left: 0;
-			position: absolute;
-			width: 100%;
-			top: 0;
-			z-index: -2;
+				content: '';
+				display: block;
+				height: 100%;
+				left: 0;
+				position: absolute;
+				width: 100%;
+				top: 0;
+				z-index: -2;
 			}
 
 			.segment::before {
-			transform: rotate(-2deg);
+				transform: rotate(-2deg);
 			}
 
 			.segment::after {
-			transform: rotate(2deg);
+				transform: rotate(2deg);
 			}
 
 			.segment > img {
-			width: 50%;
+				width: 50%;
 			}
 
 			.segment > p {
-			line-height: 1.2em;
+				line-height: 1.2em;
 			}
 		`}</style>
 	</header>

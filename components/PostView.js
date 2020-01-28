@@ -3,33 +3,42 @@ import PostMenu from "./PostMenu"
 
 const PostView = ({ post }) => (
 	<div className="blog">
-		<div className="mb-4">
+		<div className="mb-4 d-flex justify-content-between">
 			<Link href={'/'}>
-				<a className="btn btn-light">⟵ Yazılarım</a>
+				<a className="posts-link">Yazılarım</a>
 			</Link>
-		</div>
 
-		<div className="blog-title d-flex justify-content-center text-center mb-5">
-			<h2>
-				{post.title}
-			</h2>
 			<PostMenu post={post} />
 		</div>
-			
-		<div className="blog-text" dangerouslySetInnerHTML={{ __html: post.body }}>
-		</div>
 
-		<div className="blog-date">{new Date(Date.parse(post.createdAt)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+		<div className="blog-title text-center d-flex flex-column align-items-center">
+			<h2>{post.title}</h2>
+
+			<div className="blog-date py-2 mt-3 mb-5">{new Date(Date.parse(post.createdAt)).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</div>
+		</div>
+			
+		<article dangerouslySetInnerHTML={{ __html: post.body }} />
+
 		<style jsx>{`
 			.blog-date {
-				text-align: right;
-				color: #cccccc;
-				margin: 12px 0 48px 0;
+				border-width: 1px 0;
+				border-style: solid;
+				border-color: #444;
 			}
 
 			.blog-title h2 {
 				margin-left: auto;
 				margin-right: auto;
+			}
+
+			.posts-link::before {
+				content: "⟵";
+				display: inline-block;
+				padding-right: 5px;
+			}
+
+			.title-hr {
+				width: 20%;
 			}
 		`}</style>
 	</div>

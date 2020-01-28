@@ -13,8 +13,7 @@ const PostView = ({ post }) => (
 			<PostMenu post={post} />
 		</div>
 
-		<div className={"short-body"} dangerouslySetInnerHTML={{ __html: post.short }}>
-		</div>
+		<article dangerouslySetInnerHTML={{ __html: post.short }} />
 
 		<div className="blog-footer d-flex justify-content-between">
 			<Link href={'/posts/' + post.id}>
@@ -24,7 +23,7 @@ const PostView = ({ post }) => (
 		</div>
 
 		<style jsx global>{`
-			.short-body [data-block] {
+			article [data-block] {
 				margin-left: 0;
 				margin-right: 0;
 			}
