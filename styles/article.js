@@ -26,7 +26,7 @@ export default <style className={"editor"} jsx={true}>{`
 		border-radius: 6px;
 	}
 
-	[data-block=Code]::before {
+	[data-block=Code]::after {
 		content: attr(data-language);
 		position: absolute;
 		right: 10px;
