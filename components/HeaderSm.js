@@ -5,7 +5,7 @@ const Header = () => (
 	<header>
 		<div className={"container"}>
 			<div className={"row"}>
-				<div className={"col-md-10 d-flex flex-column justify-content-center"}>
+				<div className={"col-10 d-flex flex-column justify-content-center"}>
 					<h1 className={"h3 mb-0"}>
 						<Link href="/">
 							<a title="Anasayfa">Selman Kahya Blog</a>
@@ -13,7 +13,7 @@ const Header = () => (
 					</h1>
 					<SocialLinks />
 				</div>
-				<div className={"col-md-2 d-flex align-items-center"}>
+				<div className={"col-2 d-flex align-items-center"}>
 					<img src="https://yt3.ggpht.com/a/AGF-l79AOJRledCZxpPXGunr1g3udtlkCay7QCNFIQ=s288-c-k-c0xffffffff-no-rj-mo" className={"rounded-circle img-fluid"} />
 				</div>
 			</div>

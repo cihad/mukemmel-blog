@@ -41,6 +41,22 @@ const PostView = ({ post }) => (
 				width: 20%;
 			}
 		`}</style>
+
+		<style jsx global>{`
+			// xs
+			@media (max-width: 575.98px) {
+				[data-block] {
+					margin: 0;
+				}
+			}
+
+			// sm
+			@media (min-width: 576px) and (max-width: 767.98px) {
+				[data-block] {
+					margin: 0 50px;
+				}
+			}
+		`}</style>
 	</div>
 )
 

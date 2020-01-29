@@ -50,10 +50,10 @@ export default function Layout(props) {
 
 		{props.header}
 		<div className="container flex-grow-1">
-			<section>{props.children}</section>
+			<section className="py-3 py-sm-4 py-md-5">{props.children}</section>
 		</div>
 
-		<footer className={"bg-light py-5 mt-5"}>
+		<footer className={"bg-light py-3 py-sm-5 mt-4 mt-sm-5"}>
 			<div className={"container text-center"}>
 				<div className={"col"}>
 					<span>Bu site <a href="https://nextjs.org/">Next.JS</a> teknolojisi kullanılarak yapıldı. Aynı zamanda açık kaynaklı. <a href="https://github.com/cihad/mukemmel-blog">Bkz.</a></span>
