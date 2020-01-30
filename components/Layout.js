@@ -7,7 +7,7 @@ export default function Layout(props) {
   return (
 	<>
 		<Head>
-			<title>Mukemmel Blog</title>
+			<title>Selman Kahya - Harika Blog</title>
 			<link rel="icon" href="/favicon.ico" />
 			<link className={"editor"} rel="stylesheet" type="text/css" href="https://unpkg.com/@contentarchitect/editor@0.2.x/dist/CaBlocks.css" />
 			{articleStyles}
