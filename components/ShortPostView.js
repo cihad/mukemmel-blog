@@ -2,7 +2,7 @@ import Link from "next/link";
 import PostMenu from "./PostMenu"
 
 const PostView = ({ post }) => (
-	<div className="mb-4">
+	<div className="mb-5">
 		<div className="d-flex justify-content-between mb-2">
 			<h3>
 				<Link href={'/posts/' + post.id}>
