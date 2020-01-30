@@ -2,7 +2,6 @@ import { Dropdown } from "react-bootstrap"
 import Link from "next/link"
 import Router from "next/router"
 import { API_BASE } from "../src/config"
-import authenticate from "../utils/authenticate"
 
 class PostMenu extends React.Component {
 
@@ -13,9 +12,6 @@ class PostMenu extends React.Component {
 
 	async handleDelete (e) {
 		e.preventDefault()
-
-
-		if (!authenticate()) return
 
 		try {
 			const response = await fetch(`${API_BASE}/posts/${this.props.post.id}`, {
