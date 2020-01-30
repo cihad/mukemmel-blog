@@ -209,7 +209,8 @@ class PostForm extends React.Component {
 						{
 							blocks: ["Paragraph"],
 							classes: {
-								"drop-cap": "Big First Letter"
+								"drop-cap": "Big First Letter",
+								"beauty-list": "Beauty Ordered List"
 							}
 						}
 					]

@@ -46,7 +46,48 @@ export default function Layout(props) {
 				line-height: 1em;
 				margin-right: .1em;
 			}
-		` }} />		
+
+			.beauty-list ol {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.beauty-list ol {
+				list-style-type: none;
+			}
+			
+			.beauty-list ol li {
+				counter-increment: myCounter;
+				margin: 0 0 1em;
+				padding: 20px 20px 20px 60px;
+				background-color: #dadaff;
+				border-radius: .2em;
+				position: relative;
+			}
+			
+			.beauty-list ol li > b:first-child,
+			.beauty-list ol li > strong:first-child {
+				display: block;
+				margin-bottom: .5em;
+			}
+			
+			.beauty-list ol li::before {
+				content: counter(myCounter);
+				color: white;
+				position: absolute;
+				top: 17px;
+				left: 15px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50%;
+				background-color: #5b5bdc;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				font-weight: bold;
+			}
+		` }} />	
 
 		{props.header}
 		<div className="container flex-grow-1">
