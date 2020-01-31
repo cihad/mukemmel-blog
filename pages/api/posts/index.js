@@ -7,7 +7,7 @@ export default async (req, res) => {
 
 			const options = {
 				page,
-				paginate: 10, // TODO: uygulama konfigurasyonundan alinsin.
+				paginate: 5, // TODO: uygulama konfigurasyonundan alinsin.
 				order: [['createdAt', 'DESC']],
 			}
 		

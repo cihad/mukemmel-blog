@@ -8,7 +8,7 @@ export default ({ current, pages }) => (
 		<Pagination className="mb-0">
 			{
 				Array(pages).fill().map((_, i) => (
-					<Pagination.Item key={i} active={current == i+1} href={`${BASE_URL}/?page=${i+1}`}>
+					<Pagination.Item key={i} active={current == i+1} href={`${BASE_URL}?page=${i+1}`}>
 						{i+1}
 					</Pagination.Item>
 				))
