@@ -2,6 +2,7 @@ import React from "react";
 import fetch from "isomorphic-unfetch";
 import Router from "next/router"
 import { API_BASE } from "../src/config"
+import authenticate from "../utils/authenticate.js"
 
 // https://github.com/facebook/react/issues/10135#issuecomment-500929024
 function setReactInputValue(input, value) {
@@ -31,6 +32,7 @@ class PostForm extends React.Component {
 
 	async onSubmit (e) {
 		e.preventDefault()
+		if (!authenticate()) return;
 
 		const persistedId = this.props.post ? this.props.post.id : undefined
 
