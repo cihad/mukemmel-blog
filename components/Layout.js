@@ -48,7 +48,6 @@ export default function Layout(props) {
 			}
 
 			.beauty-list ol {
-				margin: 0;
 				padding: 0;
 			}
 			
@@ -86,6 +85,65 @@ export default function Layout(props) {
 				height: 30px;
 				text-align: center;
 				font-weight: bold;
+			}
+
+			.divider-line {
+				display: flex;
+				align-items: center;
+				color: #444;
+			}
+			
+			.divider-line::before,
+			.divider-line::after {
+				content: "";
+				flex: 1;
+				border-bottom: 1px solid #ccc;
+			}
+			
+			.divider-line .divider {
+				padding: 0 1em;
+			}
+			
+			.divider-line .divider::before {
+				content: "❧";
+				margin: 0;
+				letter-spacing: normal;
+				font-size: 1.5em;
+			}
+
+			.alert {
+				border-radius: .2em;
+				padding: 10px 10px 10px 44px;
+				position: relative;
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+
+			.alert p:first-child,
+			.alert .editable-body p:first-child {
+				margin-top: 0;
+			}
+
+			.alert-info {
+				border: 1px solid #add8ff;
+				background-color: #ecf6ff;
+			}
+
+			.alert-info::after {
+				content: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none" /><path fill="lightsteelblue" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>');
+				position: absolute;
+				left: 10px;
+				top: 10px;
+			}
+
+			.stretch {
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			.narrow {
+				margin-left: 150px;
+				marign-right: 150px;
 			}
 		` }} />	
 

@@ -211,6 +211,20 @@ class PostForm extends React.Component {
 								"drop-cap": "Big First Letter",
 								"beauty-list": "Beauty Ordered List"
 							}
+						},
+						{
+							blocks: ["Divider"],
+							classes: {
+								"divider-line": "Line"
+							}
+						},
+						{
+							classes: {
+								stretch: "Stretch",
+								"alert": {
+									"alert-info": "Info"
+								}
+							}
 						}
 					]
 				` }} />
