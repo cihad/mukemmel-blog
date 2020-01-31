@@ -223,7 +223,13 @@ class PostForm extends React.Component {
 								stretch: "Stretch",
 								"alert": {
 									"alert-info": "Info"
-								}
+								} 
+							}
+						},
+						{
+							blocks: ["Image"],
+							classes: {
+								bordered: "Border"
 							}
 						}
 					]

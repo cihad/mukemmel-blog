@@ -145,6 +145,10 @@ export default function Layout(props) {
 				margin-left: 150px;
 				marign-right: 150px;
 			}
+
+			.bordered img {
+				border: 1px solid #ccc;
+			}
 		` }} />	
 
 		{props.header}
