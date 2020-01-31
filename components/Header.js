@@ -2,11 +2,11 @@ import Link from "next/link";
 import SocialLinks from "./SocialLinks"
 
 const Header = () => (
-	<header className="py-3 py-md-5">
+	<header className="py-3 py-md-5 about-me">
 		<div className={"container"}>
 			<div className={"row"}>
 				<div className={"col-sm-7 col-md-8 pr-md-5 pr-0 mb-3 mb-md-0 d-flex flex-column justify-content-center"}>
-					<h1 className={"name mb-md-4 mb-md-3 title"}><strong>Merhaba ✋ yolcu</strong>,<br className="d-none d-sm-inline" /> Ben Selman Kahya</h1>
+					<h1 className={"name mb-md-4 mb-md-3 title"}><strong>Merhaba <span className="hand">✋</span> yolcu</strong>,<br className="d-none d-sm-inline" /> Ben Selman Kahya</h1>
 					<p className={"mb-md-5"}>
 						Ben bir <strong>önyüz &amp; arayüz geliştiricisi</strong>yim. Şu anda <strong>Airbnb</strong>'de çalışıyorum.
 						Aynı zamanda bir 🎥 <strong>Youtube</strong> yayıncısıyım. Bu açıklamayı benim için
@@ -89,6 +89,18 @@ const Header = () => (
 
 			.segment p {
 				line-height: 1.2em;
+			}
+
+			.about-me:hover .hand {
+				display: inline-block;
+				animation: waver 0.65s alternate infinite;
+				transform-origin: 50% 90%;
+				animation-timing-function: ease-in-out;
+			}
+
+			@keyframes waver {
+				0% {transform: rotate(-25deg);}
+				100% {transform: rotate(30deg);}
 			}
 		`}</style>
 	</header>
