@@ -61,6 +61,7 @@ const Header = () => (
 			.segment {
 				position: relative;
 				padding: 1.4em;
+				transition: transform 0.1s;
 			}
 
 			.segment::before,
@@ -73,6 +74,7 @@ const Header = () => (
 				width: 100%;
 				top: 0;
 				z-index: -2;
+				transition: transform .2s;
 			}
 
 			.segment::before {
@@ -81,6 +83,14 @@ const Header = () => (
 
 			.segment::after {
 				transform: rotate(2deg);
+			}
+
+			.segment:hover::before {
+				transform: rotate(-3deg);
+			}
+
+			.segment:hover::after {
+				transform: rotate(5deg);
 			}
 
 			.segment > img {
