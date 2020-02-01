@@ -32,7 +32,7 @@ class PostForm extends React.Component {
 
 	async onSubmit (e) {
 		e.preventDefault()
-		if (!authenticate()) return;
+		if (!(await authenticate())) return;
 
 		const persistedId = this.props.post ? this.props.post.id : undefined
 
