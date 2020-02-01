@@ -13,7 +13,7 @@ class PostMenu extends React.Component {
 
 	async handleDelete (e) {
 		e.preventDefault()
-		if (!authenticate()) return
+		if (!(await authenticate())) return
 
 		try {
 			const response = await fetch(`${API_BASE}/posts/${this.props.post.id}`, {
