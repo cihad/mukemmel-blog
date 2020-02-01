@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PostMenu from "./PostMenu"
+import Share from "./Share"
 
 const PostView = ({ post }) => (
 	<div className="blog">
@@ -7,6 +8,8 @@ const PostView = ({ post }) => (
 			<Link href={'/'}>
 				<a className="posts-link">Yazılarım</a>
 			</Link>
+
+			<Share text={post.title} />
 
 			<PostMenu post={post} />
 		</div>
